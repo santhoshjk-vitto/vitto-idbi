@@ -4,7 +4,7 @@ AI-powered relationship manager assistant that helps banks identify, qualify, an
 
 ## 🚀 Live Demo
 
-https://vitt-idbi.lovable.app
+https://vitto-idbi.lovable.app
 
 ## ✨ Features
 
