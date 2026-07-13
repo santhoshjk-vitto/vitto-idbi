@@ -23,7 +23,7 @@ export const Route = createFileRoute("/app/prospects/$id")({
 
 function ProspectDetail() {
   const p = Route.useLoaderData();
-  const initials = p.name.split(" ").map((n) => n[0]).join("");
+  const initials = p.name.split(" ").map((n: string) => n[0]).join("");
   const factors = [
     { label: "Income & cashflow", value: 94 },
     { label: "Digital behavior", value: 88 },
