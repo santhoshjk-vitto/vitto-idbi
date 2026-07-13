@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { VittoLogo } from "@/components/vitto-logo";
+import { IdbiLogo } from "@/components/idbi-logo";
 import { ArrowRight, Sparkles, Target, Users, Zap, ShieldCheck, LineChart, BrainCircuit } from "lucide-react";
 
 export const Route = createFileRoute("/")({
