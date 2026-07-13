@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { VittoLogo } from "@/components/vitto-logo";
+import { IdbiLogo } from "@/components/idbi-logo";
 import { ArrowRight, Sparkles, Target, Users, Zap, ShieldCheck, LineChart, BrainCircuit } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -22,6 +23,8 @@ function Landing() {
       <header className="sticky top-0 z-30 backdrop-blur-md bg-background/80 border-b border-border">
         <div className="max-w-6xl mx-auto flex items-center h-16 px-6">
           <VittoLogo className="h-7 w-auto" />
+          <span className="mx-3 h-6 w-px bg-border" />
+          <IdbiLogo className="text-[13px] hidden sm:inline-flex" />
           <nav className="hidden md:flex items-center gap-8 mx-auto text-sm text-muted-foreground">
             <a href="#features" className="hover:text-foreground">Features</a>
             <a href="#flow" className="hover:text-foreground">How it works</a>
@@ -44,7 +47,9 @@ function Landing() {
         <div className="max-w-6xl mx-auto px-6 pt-20 pb-24 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-medium">
             <span className="inline-flex h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-            IDBI 2026 <span className="text-vitto font-semibold">Innovate</span>
+            <IdbiLogo className="text-[11px]" />
+            <span className="text-muted-foreground">·</span>
+            2026 <span className="text-vitto font-semibold">Innovate</span>
             <span className="text-muted-foreground">· Problem Statement 2 · Prospect Assist AI</span>
           </div>
           <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
@@ -220,6 +225,8 @@ function Landing() {
         <div className="max-w-6xl mx-auto px-6 py-8 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground">
           <div className="flex items-center gap-3">
             <VittoLogo className="h-5 w-auto opacity-80" />
+            <span className="h-4 w-px bg-border" />
+            <IdbiLogo className="text-[11px]" />
             <span>© 2026 Team Vitto · Built for IDBI Innovate</span>
           </div>
           <div className="flex flex-wrap gap-x-4 gap-y-1">
