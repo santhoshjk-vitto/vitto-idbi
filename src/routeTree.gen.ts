@@ -9,11 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppCopilotRouteImport } from './routes/app.copilot'
+import { Route as AppCampaignsRouteImport } from './routes/app.campaigns'
+import { Route as AppActionsRouteImport } from './routes/app.actions'
 import { Route as AppProspectsIndexRouteImport } from './routes/app.prospects.index'
+import { Route as AppProspectsIdRouteImport } from './routes/app.prospects.$id'
 
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppRoute = AppRouteImport.update({
   id: '/app',
   path: '/app',
@@ -29,45 +39,115 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppCopilotRoute = AppCopilotRouteImport.update({
+  id: '/copilot',
+  path: '/copilot',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCampaignsRoute = AppCampaignsRouteImport.update({
+  id: '/campaigns',
+  path: '/campaigns',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppActionsRoute = AppActionsRouteImport.update({
+  id: '/actions',
+  path: '/actions',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppProspectsIndexRoute = AppProspectsIndexRouteImport.update({
   id: '/prospects/',
   path: '/prospects/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProspectsIdRoute = AppProspectsIdRouteImport.update({
+  id: '/prospects/$id',
+  path: '/prospects/$id',
   getParentRoute: () => AppRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/app/actions': typeof AppActionsRoute
+  '/app/campaigns': typeof AppCampaignsRoute
+  '/app/copilot': typeof AppCopilotRoute
   '/app/': typeof AppIndexRoute
+  '/app/prospects/$id': typeof AppProspectsIdRoute
   '/app/prospects/': typeof AppProspectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/app/actions': typeof AppActionsRoute
+  '/app/campaigns': typeof AppCampaignsRoute
+  '/app/copilot': typeof AppCopilotRoute
   '/app': typeof AppIndexRoute
+  '/app/prospects/$id': typeof AppProspectsIdRoute
   '/app/prospects': typeof AppProspectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/app/actions': typeof AppActionsRoute
+  '/app/campaigns': typeof AppCampaignsRoute
+  '/app/copilot': typeof AppCopilotRoute
   '/app/': typeof AppIndexRoute
+  '/app/prospects/$id': typeof AppProspectsIdRoute
   '/app/prospects/': typeof AppProspectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app' | '/app/' | '/app/prospects/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/login'
+    | '/app/actions'
+    | '/app/campaigns'
+    | '/app/copilot'
+    | '/app/'
+    | '/app/prospects/$id'
+    | '/app/prospects/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/app' | '/app/prospects'
-  id: '__root__' | '/' | '/app' | '/app/' | '/app/prospects/'
+  to:
+    | '/'
+    | '/login'
+    | '/app/actions'
+    | '/app/campaigns'
+    | '/app/copilot'
+    | '/app'
+    | '/app/prospects/$id'
+    | '/app/prospects'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/login'
+    | '/app/actions'
+    | '/app/campaigns'
+    | '/app/copilot'
+    | '/app/'
+    | '/app/prospects/$id'
+    | '/app/prospects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
+  LoginRoute: typeof LoginRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/app': {
       id: '/app'
       path: '/app'
@@ -89,6 +169,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/copilot': {
+      id: '/app/copilot'
+      path: '/copilot'
+      fullPath: '/app/copilot'
+      preLoaderRoute: typeof AppCopilotRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/campaigns': {
+      id: '/app/campaigns'
+      path: '/campaigns'
+      fullPath: '/app/campaigns'
+      preLoaderRoute: typeof AppCampaignsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/actions': {
+      id: '/app/actions'
+      path: '/actions'
+      fullPath: '/app/actions'
+      preLoaderRoute: typeof AppActionsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/prospects/': {
       id: '/app/prospects/'
       path: '/prospects'
@@ -96,16 +197,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppProspectsIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/prospects/$id': {
+      id: '/app/prospects/$id'
+      path: '/prospects/$id'
+      fullPath: '/app/prospects/$id'
+      preLoaderRoute: typeof AppProspectsIdRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
+  AppActionsRoute: typeof AppActionsRoute
+  AppCampaignsRoute: typeof AppCampaignsRoute
+  AppCopilotRoute: typeof AppCopilotRoute
   AppIndexRoute: typeof AppIndexRoute
+  AppProspectsIdRoute: typeof AppProspectsIdRoute
   AppProspectsIndexRoute: typeof AppProspectsIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppActionsRoute: AppActionsRoute,
+  AppCampaignsRoute: AppCampaignsRoute,
+  AppCopilotRoute: AppCopilotRoute,
   AppIndexRoute: AppIndexRoute,
+  AppProspectsIdRoute: AppProspectsIdRoute,
   AppProspectsIndexRoute: AppProspectsIndexRoute,
 }
 
@@ -114,6 +230,7 @@ const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
+  LoginRoute: LoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
