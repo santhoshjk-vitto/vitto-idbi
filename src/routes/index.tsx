@@ -47,7 +47,9 @@ function Landing() {
         <div className="max-w-6xl mx-auto px-6 pt-20 pb-24 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-medium">
             <span className="inline-flex h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-            IDBI 2026 <span className="text-vitto font-semibold">Innovate</span>
+            <IdbiLogo className="text-[11px]" />
+            <span className="text-muted-foreground">·</span>
+            2026 <span className="text-vitto font-semibold">Innovate</span>
             <span className="text-muted-foreground">· Problem Statement 2 · Prospect Assist AI</span>
           </div>
           <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
