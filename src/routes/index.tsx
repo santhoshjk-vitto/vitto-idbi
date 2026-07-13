@@ -9,8 +9,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "VittoProspect · AI-Powered Prospect Intelligence for IDBI Bank" },
       { name: "description", content: "AI co-pilot that helps IDBI Relationship Managers identify the right prospects, predict needs, and recommend the next best action." },
-      { property: "og:title", content: "VittoProspect · Prospect Assist AI" },
-      { property: "og:description", content: "Built for IDBI Innovate 2026 by Team Vitto." },
+      { property: "og:title", content: "VittoProspect · AI-Powered Prospect Intelligence for IDBI Bank" },
+      { property: "og:description", content: "AI co-pilot that helps IDBI Relationship Managers identify the right prospects, predict needs, and recommend the next best action." },
     ],
   }),
   component: Landing,
