@@ -47,11 +47,13 @@ export function AppSidebar() {
         </nav>
 
         <div className="mt-8 rounded-xl border border-sidebar-border bg-background p-4">
-          <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
-            <Building2 className="h-3.5 w-3.5" />
-            IDBI Bank
+          <div className="flex items-center justify-between gap-2">
+            <IdbiLogo className="text-[13px]" />
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              Partner
+            </span>
           </div>
-          <p className="mt-2 text-[13px] leading-relaxed text-foreground">
+          <p className="mt-3 text-[13px] leading-relaxed text-foreground">
             IDBI 2026 <span className="text-vitto font-semibold">Innovate</span>
             <span className="text-muted-foreground"> · Prospect Assist AI</span>
           </p>
