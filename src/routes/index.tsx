@@ -23,6 +23,8 @@ function Landing() {
       <header className="sticky top-0 z-30 backdrop-blur-md bg-background/80 border-b border-border">
         <div className="max-w-6xl mx-auto flex items-center h-16 px-6">
           <VittoLogo className="h-7 w-auto" />
+          <span className="mx-3 h-6 w-px bg-border" />
+          <IdbiLogo className="text-[13px] hidden sm:inline-flex" />
           <nav className="hidden md:flex items-center gap-8 mx-auto text-sm text-muted-foreground">
             <a href="#features" className="hover:text-foreground">Features</a>
             <a href="#flow" className="hover:text-foreground">How it works</a>
