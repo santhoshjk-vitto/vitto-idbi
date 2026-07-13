@@ -225,6 +225,8 @@ function Landing() {
         <div className="max-w-6xl mx-auto px-6 py-8 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground">
           <div className="flex items-center gap-3">
             <VittoLogo className="h-5 w-auto opacity-80" />
+            <span className="h-4 w-px bg-border" />
+            <IdbiLogo className="text-[11px]" />
             <span>© 2026 Team Vitto · Built for IDBI Innovate</span>
           </div>
           <div className="flex flex-wrap gap-x-4 gap-y-1">
