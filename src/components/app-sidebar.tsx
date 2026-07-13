@@ -1,6 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { LayoutDashboard, Users, Zap, Megaphone, Sparkles, Settings, LogOut, Building2 } from "lucide-react";
+import { LayoutDashboard, Users, Zap, Megaphone, Sparkles, Settings, LogOut } from "lucide-react";
 import { VittoLogo } from "./vitto-logo";
+import { IdbiLogo } from "./idbi-logo";
 import { cn } from "@/lib/utils";
 
 const nav = [
